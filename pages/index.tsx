@@ -4,14 +4,14 @@ import Image from 'next/image'
 import React, { useState } from 'react';
 
 const Home: NextPage = () => {
-  const [message, setMessage] = useState();
-  const [response, setResponse] = useState();
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
 
-  const handleChange = (event) => {
+  const handleChange = (event : any) => {
     setMessage(event.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e : any) => {
       e.preventDefault();
       // const message = e.target.elements.message.value;
       console.log("Message", message);
@@ -30,9 +30,9 @@ const Home: NextPage = () => {
   }
 
 
-  const questions = [    " Hey Goku, can you tell me about Kakarot, the zkEVM written in Cairo?",    "What is a ZkEvm?",    "Is Kakarot a blockchain, or what is it?",    " When can we expect to see Kakarot on mainnet?",    "Is Starkware behind the Kakarot project?",    "What is your favorite food?",       "What are your most memorable battles?",    "What is your relationship with Vegeta like?",   "What is the Dragon Ball world like?",];
+  const questions : string[] = [    " Hey Goku, can you tell me about Kakarot, the zkEVM written in Cairo?",    "What is a ZkEvm?",    "Is Kakarot a blockchain, or what is it?",    " When can we expect to see Kakarot on mainnet?",    "Is Starkware behind the Kakarot project?",    "What is your favorite food?",       "What are your most memorable battles?",    "What is your relationship with Vegeta like?",   "What is the Dragon Ball world like?",];
 
-  const QuestionButton = ({ question }) => (
+  const QuestionButton = ({ question }: { question: string }) => (
     <div className="col-span-1">
       <button className="bg-gray-300 rounded-lg p-2" onClick={() => setMessage(question)}>
         {question}
